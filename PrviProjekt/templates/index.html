@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Živijo 2.Ri</h1>
-    </header>
+       <h1>Živijo 2.Ri</h1>
+	   {% if podatki['uspeh'] %}
+	   <i>Uspešno sem se povezal na database.</i>
+	   {% else %}
+	   <i><bold>Neuspešno</bold> sem se povezal na database.</i>
+	   {% end if %}
 </body>
 </html>
