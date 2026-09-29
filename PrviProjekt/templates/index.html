@@ -12,5 +12,19 @@
 	   {% else %}
 	   <i><bold>Neuspešno</bold> sem se povezal na database.</i>
 	   {% end if %}
+	   
+	   <h2>HTML Forms</h2>
+
+	<form action="/" method="POST">
+		<label for="fname">Višina(cm):</label><br>
+		<input type="text" id="visinaID" name="visina" value="{{podatki['visina']}}"><br>
+		<label for="lname">Teža(kg):</label><br>
+		<input type="text" id="tezaID" name="teza" value="{{podatki['teza']}}"><br><br>
+		<input type="submit" value="IZRAČUNAJ">
+	</form> 
+	{% if podatki['itm'] %}
+	<i>Vaš ITM je {{podatki['itm']}}</i>
+	{% endif %}
+
 </body>
 </html>

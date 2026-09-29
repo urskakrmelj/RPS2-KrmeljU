@@ -16,9 +16,24 @@ APP_PORT = 5000
 @app.route("/", methods = ["GET", "POST"])
 def index():
     data = {
-        "uspeh" : False
+        "uspeh" : False,
+        "itm" : None,
+        "teza" : "",
+        "visina" : ""
     }
     data["uspeh"] = dbLogic.getAll()
+    if request.method == "POST":
+        data["teza"] = request.form.get("teza")
+        data["visina"] = request.form.get("visina")
+        
+        if data["teza"] and data["visina"]:
+            data["itm"] = izracunaj_itm(float(data["visina"]),float(data["teza"]))
+        prnit(data)
+        
+    return render_template("index.html", podatki = data)
+    
+def izracunaj_itm(visinaCm, tezaKg):
+    itm = teza / (visinaCm/100) ** 2
     return render_template("index.html", podatki = data)
 
 app.config["DEBUG"] = True
