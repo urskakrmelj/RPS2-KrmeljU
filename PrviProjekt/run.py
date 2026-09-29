@@ -35,6 +35,6 @@ def index():
 def izracunaj_itm(visinaCm, tezaKg):
     itm = teza / (visinaCm/100) ** 2
     return render_template("index.html", podatki = data)
-
+print("Hello world")
 app.config["DEBUG"] = True
 app.run(host = APP_ADDRESS, port = APP_PORT)
