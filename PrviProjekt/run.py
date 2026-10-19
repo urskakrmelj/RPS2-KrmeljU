@@ -33,6 +33,12 @@ def index():
         
     return render_template("index.html", podatki = data)
     
+@app.route("/izbrisi/<sID>")
+def dnevnik_izbrisi(sID):
+    ID =int(sID)
+    dbLogic.deleteItm(ID)
+    return redirect("/dnevnik")
+    
 def izracunaj_itm(visinaCm, tezaKg):
     itm = teza / (visinaCm/100) ** 2
     return itm
